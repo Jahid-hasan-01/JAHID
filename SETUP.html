@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Guide - Hex Byte</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #22c55e;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #22c55e;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #111827;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .step {
+            background: #f9fafb;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #22c55e;
+            border-radius: 5px;
+        }
+        .step h3 {
+            color: #22c55e;
+            margin-bottom: 10px;
+        }
+        code {
+            background: #1f2937;
+            color: #10b981;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .code-block {
+            background: #1f2937;
+            color: #10b981;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        a {
+            color: #22c55e;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .success {
+            background: #d1fae5;
+            border-left-color: #10b981;
+            color: #047857;
+        }
+        .warning {
+            background: #fef3c7;
+            border-left-color: #f59e0b;
+            color: #92400e;
+        }
+        .info {
+            background: #dbeafe;
+            border-left-color: #3b82f6;
+            color: #1e40af;
+        }
+        button {
+            background: #22c55e;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #16a34a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Hex Byte - Quick Start Guide</h1>
+        
+        <p>Welcome! This guide will help you get started with your professional portfolio website.</p>
+
+        <h2>📋 Files Created</h2>
+        <p>Your project includes the following files:</p>
+        <ul>
+            <li><strong>index.html</strong> - Main website file</li>
+            <li><strong>css/custom.css</strong> - All custom styles</li>
+            <li><strong>js/main.js</strong> - JavaScript functionality</li>
+            <li><strong>README.md</strong> - Full documentation</li>
+            <li><strong>assets/images/</strong> - Folder for your images</li>
+        </ul>
+
+        <h2>🎯 Getting Started (3 Steps)</h2>
+
+        <div class="step success">
+            <h3>Step 1: Open Your Website</h3>
+            <p>Simply open <code>index.html</code> in your web browser. That's it! The site is fully functional right out of the box.</p>
+            <p><strong>No server needed to see it work!</strong></p>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Customize Your Content</h3>
+            <p>Edit <code>index.html</code> and replace:</p>
+            <ul>
+                <li>Your name and professional title</li>
+                <li>About section text</li>
+                <li>Work experience (companies, dates, descriptions)</li>
+                <li>Services you offer</li>
+                <li>Your portfolio projects</li>
+                <li>Contact information</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Personalize the Design</h3>
+            <p>Edit <code>css/custom.css</code> to change:</p>
+            <ul>
+                <li><strong>Colors:</strong> Look for <code>--primary-color: #22c55e</code> and change to your brand color</li>
+                <li><strong>Fonts:</strong> Modify Google Fonts import for different typography</li>
+                <li><strong>Spacing:</strong> Adjust padding and margins to your preference</li>
+            </ul>
+        </div>
+
+        <h2>🎨 Color Customization</h2>
+        <p>To change the primary color (currently green):</p>
+        <div class="code-block">
+/* In css/custom.css, find and change this: */
+:root {
+    --primary-color: #22c55e;  /* Change #22c55e to your color */
+}
+        </div>
+        <p>Popular color options:</p>
+        <ul>
+            <li><code>#3b82f6</code> - Blue</li>
+            <li><code>#ec4899</code> - Pink</li>
+            <li><code>#f59e0b</code> - Orange</li>
+            <li><code>#8b5cf6</code> - Purple</li>
+            <li><code>#ef4444</code> - Red</li>
+        </ul>
+
+        <h2>📸 Adding Your Images</h2>
+        <p>To replace placeholder images:</p>
+        <ol>
+            <li>Place your images in the <code>assets/images/</code> folder</li>
+            <li>Find the image placeholders in <code>index.html</code></li>
+            <li>Replace placeholders with: <code>&lt;img src="assets/images/your-image.jpg" alt="Description"&gt;</code></li>
+        </ol>
+
+        <h2>✉️ Contact Form Setup</h2>
+        <p>The contact form currently shows success messages but doesn't send emails.</p>
+        
+        <h3>Option A: Use Formspree (Easiest)</h3>
+        <ol>
+            <li>Go to <a href="https://formspree.io" target="_blank">formspree.io</a></li>
+            <li>Create a free account and add your form</li>
+            <li>Copy your form ID</li>
+            <li>In <code>index.html</code>, find the contact form and change:
+                <div class="code-block">&lt;form class="contact-form" id="contactForm"&gt;</div>
+                to:
+                <div class="code-block">&lt;form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"&gt;</div>
+            </li>
+        </ol>
+
+        <h3>Option B: Use EmailJS (No Backend)</h3>
+        <ol>
+            <li>Visit <a href="https://www.emailjs.com" target="_blank">emailjs.com</a></li>
+            <li>Sign up free and get your Service ID</li>
+            <li>Add the EmailJS library to <code>index.html</code>:
+                <div class="code-block">&lt;script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"&gt;&lt;/script&gt;</div>
+            </li>
+        </ol>
+
+        <h2>🔧 Professional Features Already Included</h2>
+        <div class="step success">
+            <ul>
+                <li>✓ Responsive design (works on all devices)</li>
+                <li>✓ Smooth scrolling navigation</li>
+                <li>✓ Active link highlighting</li>
+                <li>✓ Fade-in animations on scroll</li>
+                <li>✓ Form validation</li>
+                <li>✓ Mobile-friendly menu</li>
+                <li>✓ Scroll-to-top button</li>
+                <li>✓ Professional typography</li>
+                <li>✓ SEO optimized</li>
+                <li>✓ Fast loading times</li>
+            </ul>
+        </div>
+
+        <h2>🌐 How to View Locally (with Live Server)</h2>
+        <p>For the best experience, use a local server:</p>
+
+        <h3>Using Python:</h3>
+        <div class="code-block">cd /path/to/your/phh
+python -m http.server 8000
+        </div>
+        <p>Then open: <code>http://localhost:8000</code></p>
+
+        <h3>Using Node.js:</h3>
+        <div class="code-block">npm install -g http-server
+http-server
+        </div>
+
+        <h2>📱 Responsive Testing</h2>
+        <p>Test your site on different devices:</p>
+        <ul>
+            <li>Desktop: 1200px+ (full layout)</li>
+            <li>Tablet: 768-1199px (optimized layout)</li>
+            <li>Mobile: 320-767px (mobile-first design)</li>
+        </ul>
+        <p>Use your browser's DevTools to test: Press <code>F12</code> and click the device toolbar icon.</p>
+
+        <h2>🚀 Deployment Options</h2>
+
+        <h3>Deploy to GitHub Pages (Free)</h3>
+        <ol>
+            <li>Create a GitHub repository</li>
+            <li>Push your files</li>
+            <li>Enable Pages in repository settings</li>
+            <li>Your site will be live!</li>
+        </ol>
+
+        <h3>Deploy to Netlify (Free, Easy)</h3>
+        <ol>
+            <li>Go to <a href="https://netlify.com" target="_blank">netlify.com</a></li>
+            <li>Drag and drop your folder</li>
+            <li>Site goes live instantly!</li>
+        </ol>
+
+        <h3>Deploy to Vercel (Free, Fast)</h3>
+        <ol>
+            <li>Go to <a href="https://vercel.com" target="_blank">vercel.com</a></li>
+            <li>Import your GitHub repo</li>
+            <li>Auto-deploys on every push!</li>
+        </ol>
+
+        <h2>🎓 Learning Resources</h2>
+        <ul>
+            <li><a href="https://getbootstrap.com/docs/5.3/" target="_blank">Bootstrap 5 Documentation</a></li>
+            <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+            <li><a href="https://css-tricks.com/" target="_blank">CSS Tricks</a></li>
+            <li><a href="https://fontawesome.com/icons" target="_blank">Font Awesome Icons</a></li>
+        </ul>
+
+        <h2>❓ Common Questions</h2>
+
+        <div class="step warning">
+            <h3>Q: Do I need coding knowledge?</h3>
+            <p><strong>A:</strong> Not for basic customization! Just edit text in the HTML file. For advanced changes, basic CSS/JavaScript knowledge helps.</p>
+        </div>
+
+        <div class="step warning">
+            <h3>Q: Can I use my own domain?</h3>
+            <p><strong>A:</strong> Yes! Most hosting providers support custom domains. Check your hosting platform for DNS settings.</p>
+        </div>
+
+        <div class="step warning">
+            <h3>Q: How do I add more sections?</h3>
+            <p><strong>A:</strong> Copy an existing section in the HTML and modify the content. Just follow the same structure!</p>
+        </div>
+
+        <h2>✅ Pre-Launch Checklist</h2>
+        <p>Before going live:</p>
+        <ul>
+            <li>☐ Update all text content</li>
+            <li>☐ Add your real images</li>
+            <li>☐ Update contact information</li>
+            <li>☐ Set up contact form (Formspree/EmailJS)</li>
+            <li>☐ Add social media links</li>
+            <li>☐ Test on mobile devices</li>
+            <li>☐ Test all links work</li>
+            <li>☐ Check spelling and grammar</li>
+            <li>☐ Test form submission</li>
+            <li>☐ Get feedback from friends</li>
+        </ul>
+
+        <h2>📞 Need Help?</h2>
+        <p>Check the detailed <strong>README.md</strong> file for more information on:</p>
+        <ul>
+            <li>Troubleshooting issues</li>
+            <li>Advanced customization</li>
+            <li>SEO optimization</li>
+            <li>Performance tuning</li>
+            <li>Accessibility features</li>
+        </ul>
+
+        <div class="step info">
+            <h3>💡 Pro Tips</h3>
+            <ul>
+                <li>Keep text concise and professional</li>
+                <li>Use high-quality images</li>
+                <li>Update portfolio regularly</li>
+                <li>Test on actual mobile devices</li>
+                <li>Keep contact info current</li>
+                <li>Use consistent branding</li>
+            </ul>
+        </div>
+
+        <h2>🎉 You're All Set!</h2>
+        <p>Your professional portfolio is ready to go. Now:</p>
+        <ol>
+            <li>Open <code>index.html</code> in your browser</li>
+            <li>Customize the content</li>
+            <li>Add your images</li>
+            <li>Deploy to the web</li>
+            <li>Share with the world! 🌍</li>
+        </ol>
+
+        <button onclick="window.location.href='index.html'">← Go to Website</button>
+    </div>
+</body>
+</html>
