@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Web Development & Digital Solutions">
+    <title>Welcome JXH Portfolio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    <!-- Page Preloader -->
+    <div id="preloader" style="
+        position: fixed;
+        inset: 0;
+        background: #0a0a1a;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.6s ease, visibility 0.6s ease;
+    ">
+        <div style="text-align:center;">
+            <div style="
+                width: 50px; height: 50px;
+                border: 3px solid rgba(108,92,231,0.2);
+                border-top-color: #6c5ce7;
+                border-radius: 50%;
+                animation: preloaderSpin 0.8s linear infinite;
+                margin: 0 auto 1rem;
+            "></div>
+            <div style="
+                background: linear-gradient(135deg, #6c5ce7, #00cec9);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-family: Poppins, sans-serif;
+                font-weight: 700;
+                font-size: 1.2rem;
+            ">Loading...</div>
+        </div>
+    </div>
+    <style>
+        @keyframes preloaderSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scrollProgress" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #6c5ce7, #0984e3, #00cec9, #fd79a8);
+        z-index: 10001;
+        width: 0%;
+        transition: width 0.1s linear;
+        box-shadow: 0 0 10px rgba(108,92,231,0.5);
+    "></div>
+
+    <!-- Mesh Grid Overlay -->
+    <div class="mesh-overlay"></div>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- 3D Canvas Background -->
+    <canvas id="canvas3d"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/JXH .jpg" alt="JXH" height="45" width="45" class="brand-logo">
+                <span class="brand-text">JXH</span>
+            </a>
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="toggler-line"></span>
+                <span class="toggler-line"></span>
+                <span class="toggler-line"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <button class="theme-toggle ms-lg-3" id="themeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon theme-icon-dark"></i>
+                    <i class="fas fa-sun theme-icon-light"></i>
+                </button>
+                <a href="contact.html" class="btn btn-nav-cta ms-lg-3">Hire Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="scanlines"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="container h-100">
+            <div class="row align-items-center h-100">
+                <div class="col-lg-6">
+                    <div class="floating-badge reveal">
+                        <span class="dot"></span>
+                        Available for freelance
+                    </div>
+                    <h1 class="hero-title reveal">
+                        3+ Years Building<br>
+                        <span class="gradient-text">Scalable Web Solutions</span><span class="typing-cursor"></span><br>
+                        for Startups & SMEs
+                    </h1>
+                    <p class="hero-subtitle reveal">
+                        Freelance Full-Stack Developer for Startups, Agencies & SaaS Innovators.
+                    </p>
+                    <div class="hero-buttons reveal">
+                        <a href="portfolio.html" class="btn btn-primary btn-lg magnetic-btn">Explore GitHub</a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg magnetic-btn">Get Webflow Template</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image reveal-right">
+                        <div class="image-placeholder tilt-card" data-tilt>
+                            <img src="assets/images/me2.jpeg" alt="" height="100%" width="100%">
+                        </div>
+                        <div class="orbit-ring" style="width:120%;height:120%;top:-10%;left:-10%;">
+                            <div class="orbit-dot"></div>
+                        </div>
+                        <div class="orbit-ring" style="width:140%;height:140%;top:-20%;left:-20%;animation-duration:30s;animation-direction:reverse;">
+                            <div class="orbit-dot" style="background:var(--accent-pink);box-shadow:0 0 10px var(--accent-pink);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Powered by Modern Technologies Section -->
+    <section class="tech-stack-section">
+        <div class="container">
+            <h3 class="tech-stack-title reveal">Powered by Modern Technologies</h3>
+            <div class="tech-marquee">
+                <div class="tech-track">
+                    <div class="tech-item"><i class="fab fa-laravel"></i><span>Laravel</span></div>
+                    <div class="tech-item"><i class="fab fa-react"></i><span>React</span></div>
+                    <div class="tech-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                    <div class="tech-item"><i class="fab fa-python"></i><span>Python</span></div>
+                    <div class="tech-item"><i class="fab fa-aws"></i><span>AWS</span></div>
+                    <div class="tech-item"><i class="fab fa-docker"></i><span>Docker</span></div>
+                    <div class="tech-item"><i class="fas fa-database"></i><span>MongoDB</span></div>
+                    <div class="tech-item"><i class="fab fa-js"></i><span>TypeScript</span></div>
+                    <div class="tech-item"><i class="fab fa-vuejs"></i><span>Vue.js</span></div>
+                    <div class="tech-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                    <div class="tech-item"><i class="fab fa-figma"></i><span>Figma</span></div>
+                    <div class="tech-item"><i class="fas fa-server"></i><span>GraphQL</span></div>
+                    <div class="tech-item"><i class="fab fa-laravel"></i><span>Laravel</span></div>
+                    <div class="tech-item"><i class="fab fa-php"></i><span>PHP</span></div>
+                    <div class="tech-item"><i class="fas fa-database"></i><span>SQL</span></div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="tech-item"><i class="fab fa-laravel"></i><span>Laravel</span></div>
+                    <div class="tech-item"><i class="fab fa-php"></i><span>PHP</span></div>
+                    <div class="tech-item"><i class="fas fa-database"></i><span>SQL</span></div>
+                    <div class="tech-item"><i class="fab fa-react"></i><span>React</span></div>
+                    <div class="tech-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                    <div class="tech-item"><i class="fab fa-python"></i><span>Python</span></div>
+                    <div class="tech-item"><i class="fab fa-aws"></i><span>AWS</span></div>
+                    <div class="tech-item"><i class="fab fa-docker"></i><span>Docker</span></div>
+                    <div class="tech-item"><i class="fas fa-database"></i><span>MongoDB</span></div>
+                    <div class="tech-item"><i class="fab fa-js"></i><span>TypeScript</span></div>
+                    <div class="tech-item"><i class="fab fa-vuejs"></i><span>Vue.js</span></div>
+                    <div class="tech-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                    <div class="tech-item"><i class="fab fa-figma"></i><span>Figma</span></div>
+                    <div class="tech-item"><i class="fab fa-linux"></i><span>Linux</span></div>
+                    <div class="tech-item"><i class="fas fa-server"></i><span>GraphQL</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glow Line -->
+    <div class="glow-line"></div>
+
+    <!-- Stats Section -->
+    <section class="stats-section" style="background: var(--dark-surface); padding: 2rem 0;">
+        <div class="container">
+            <div class="stats-row stagger-children">
+                <div class="stat-card reveal">
+                    <div class="stat-num" data-target="50" data-counter>0</div>
+                    <div class="stat-label">Projects Done</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-num" data-target="30" data-counter>0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-num" data-target="3" data-counter>0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-num" data-target="15" data-counter>0</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row align-items-center gap-5">
+                <div class="col-lg-5">
+                    <div class="about-image reveal-left">
+                        <div class="image-placeholder-lg tilt-card" data-tilt>
+                            <img src="assets/images/me1.jpeg" alt="" height="100%" width="100%">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title reveal glow-on-hover">I am Jahid more Than a Developer—Your Partner in Scaling Ideas.</h2>
+                    <p class="about-text reveal">
+                        With 3+ years in web development, I've built scalable applications for startups like you and delivered high-quality code that runs without performance, security, seamless user experiences.
+                    </p>
+                    <p class="about-text reveal">
+                        I believe in writing clean, scalable code and fostering clear communication. This unnecessary jargon—just efficient development, problem-solving, and mutual growth.
+                    </p>
+                    <a href="contact.html" class="btn btn-dark magnetic-btn reveal">Let's Connect <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glow Line -->
+    <div class="glow-line"></div>
+
+    <!-- Experience Section -->
+    <section class="experience-section">
+        <div class="container">
+            <h2 class="section-title mb-5 reveal glow-on-hover">My Working Experience</h2>
+            <div class="timeline">
+                <div class="timeline-line">
+                    <div class="timeline-line-fill" id="timelineFill"></div>
+                </div>
+
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                     <div class="timeline-card experience-card card-inner-glow tilt-card" data-tilt>
+                        <div class="experience-header">
+                            <h3>Lead Engineer</h3>
+                            <span class="company-badge">JXH</span>
+                        </div>
+                        <p class="experience-date">2025 - Now</p>
+                        <p class="experience-description">
+                            Leading development teams to build scalable web applications and mentor junior developers.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Leadership</span>
+                            <span class="tag">Architecture</span>
+                            <span class="tag">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-card experience-card card-inner-glow tilt-card" data-tilt>
+                        <div class="experience-header">
+                            <h3>Senior Software Engineer</h3>
+                            <span class="company-badge">NIYD</span>
+                        </div>
+                        <p class="experience-date">2024 - 2025</p>
+                        <p class="experience-description">
+                            Developed high-performance systems, optimizing algorithms and improving system reliability.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-card experience-card card-inner-glow tilt-card" data-tilt>
+                        <div class="experience-header">
+                            <h3>Mid-Level Software Engineer</h3>
+                            <span class="company-badge">Data Swift</span>
+                        </div>
+                        <p class="experience-date">2023 - 2024</p>
+                        <p class="experience-description">
+                            Built robust data pipeline systems and improved query performance significantly.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Data Pipeline</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-card experience-card card-inner-glow tilt-card" data-tilt>
+                        <div class="experience-header">
+                            <h3>Software Engineer</h3>
+                            <span class="company-badge">Prime Car</span>
+                        </div>
+                        <p class="experience-date">2022 - 2022</p>
+                        <p class="experience-description">
+                            Started professional development career building web applications with modern frameworks.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title mb-5 reveal glow-on-hover">Services I Offer</h2>
+            <div class="row g-4 stagger-children">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <img src="assets/images/e-cmm.png" alt="" height="100px" width="100px">
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Building responsive, scalable web applications with modern technologies and best practices.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <img src="assets/images/App.png" alt="" height="100px" width="100px">
+                        </div>
+                        <h3>Mobile Development</h3>
+                        <p>Creating cross-platform mobile applications that deliver excellent user experiences.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <img src="assets/images/databese2.png" alt="" height="100px" width="100px">
+                        </div>
+                        <h3>Backend Solutions</h3>
+                        <p>Designing and implementing robust backend systems with scalability and security in mind.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <img src="assets/images/ux.png" alt="" height="100px" width="100px">
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>Crafting beautiful and intuitive user interfaces that engage and convert.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <img src="assets/images/databese.png" alt="" height="100px" width="100px">
+                        </div>
+                        <h3>Cloud Solutions</h3>
+                        <p>Deploying and managing applications on cloud platforms for optimal performance.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <img src="assets/images/CONSULTING.jpg" alt="" height="100px" width="100px">
+                        </div>
+                        <h3>Consulting</h3>
+                        <p>Providing expert guidance on architecture, technology selection, and development strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Section Transition -->
+    <div class="section-transition">
+        <svg class="wave-divider" viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#6c5ce7;stop-opacity:0.6" />
+                    <stop offset="50%" style="stop-color:#00cec9;stop-opacity:0.6" />
+                    <stop offset="100%" style="stop-color:#fd79a8;stop-opacity:0.6" />
+                </linearGradient>
+                <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#fd79a8;stop-opacity:0.3" />
+                    <stop offset="50%" style="stop-color:#6c5ce7;stop-opacity:0.3" />
+                    <stop offset="100%" style="stop-color:#00cec9;stop-opacity:0.3" />
+                </linearGradient>
+            </defs>
+            <path class="wave wave-1" fill="url(#waveGrad1)" d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z"/>
+            <path class="wave wave-2" fill="url(#waveGrad2)" d="M0,80 C240,20 480,100 720,60 C960,20 1200,100 1440,40 L1440,120 L0,120 Z"/>
+            <path class="wave wave-3" fill="rgba(108,92,231,0.1)" d="M0,90 C180,50 360,110 540,70 C720,30 900,90 1080,50 C1260,10 1380,70 1440,90 L1440,120 L0,120 Z"/>
+        </svg>
+        <div class="transition-text reveal">
+            <span class="transition-label">Featured Work</span>
+            <div class="transition-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title mb-5 reveal glow-on-hover">Featured Projects</h2>
+            <div class="row g-4 stagger-children">
+                <div class="col-lg-6">
+                    <div class="portfolio-card reveal">
+                        <div class="portfolio-image-placeholder">
+                            <img src="assets/images/E-cmm.jpg" alt="" height="100%" width="100%">
+                            <div class="portfolio-overlay">
+                                <span class="view-btn"><i class="fas fa-eye"></i></span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-number">01</div>
+                            <h3>E-Commerce Platform</h3>
+                            <p>Full-stack e-commerce solution with payment integration, inventory management, and real-time analytics.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                            <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="portfolio-card reveal">
+                        <div class="portfolio-image-placeholder">
+                            <img src="assets/images/AssA.png" alt="" height="100%" width="100%">
+                            <div class="portfolio-overlay">
+                                <span class="view-btn"><i class="fas fa-eye"></i></span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-number">02</div>
+                            <h3>SaaS Dashboard</h3>
+                            <p>Interactive analytics dashboard with real-time data visualization and user management features.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">PostgreSQL</span>
+                            </div>
+                            <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="portfolio-card reveal">
+                        <div class="portfolio-image-placeholder">
+                            <img src="assets/images/App.png" alt="" height="100%" width="100%">
+                            <div class="portfolio-overlay">
+                                <span class="view-btn"><i class="fas fa-eye"></i></span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-number">03</div>
+                            <h3>Mobile App Platform</h3>
+                            <p>Cross-platform mobile application with offline support and cloud synchronization.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">React Native</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">AWS</span>
+                            </div>
+                            <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="portfolio-card reveal">
+                        <div class="portfolio-image-placeholder">
+                            <img src="assets/images/Ai.webp" alt="" height="100%" width="100%">
+                            <div class="portfolio-overlay">
+                                <span class="view-btn"><i class="fas fa-eye"></i></span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-number">04</div>
+                            <h3>AI Integration System</h3>
+                            <p>Intelligent system integrating machine learning models for predictive analytics and automation.</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">Docker</span>
+                            </div>
+                            <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="reveal glow-on-hover">Ready to Scale Your Ideas?</h2>
+                    <p class="reveal">Let's collaborate to build something exceptional. I'm here to turn your vision into reality.</p>
+                    <a href="contact.html" class="btn btn-primary btn-lg btn-cta magnetic-btn reveal">Get Started Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glow Line -->
+    <div class="glow-line"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title mb-5 text-center reveal glow-on-hover">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <form class="contact-form reveal-scale" id="contactForm" action="https://formspree.io/f/mwvrjydl" method="POST">
+                        <input type="hidden" name="_to" value="jahiditmail@gmail.com">
+                        <input type="hidden" name="_subject" value="New Contact Form Message - JXH Portfolio">
+                        <input type="hidden" name="_replyto" value="">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" required onchange="document.querySelector('input[name=_replyto]').value=this.value">
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Jahid X Hasan</h5>
+                    <p>Building scalable web solutions for startups and SMEs.</p>
+                    <div class="social-links-large">
+                        <a href="https://twitter.com/jahid_niyd" title="Twitter" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/jahid-niyd/" title="LinkedIn" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/jahidniyd" title="GitHub" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/jahid_niyd/" title="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <ul class="footer-info">
+                        <li><i class="fas fa-envelope me-2"></i><a href="mailto:jahid.niyd@gmail.com">jahid.niyd@gmail.com</a></li>
+                        <li><i class="fas fa-phone me-2"></i><a href="tel:+01568854578">+0 (156) 885-4578</a></li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>Mymensingh, Dhaka, Bangladesh</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright">&copy; 2025 JXH. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="footer-link me-3">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
